@@ -15,7 +15,6 @@
   "type": "module",
   "dependencies": {
     "express": "^5.2.1",
-    "sqlite3": "^5.1.7",
     "bcrypt": "^6.0.0"
   },
   "devDependencies":{
