@@ -2,14 +2,18 @@
     "compilerOptions": {
         "target": "esnext",
         "module": "nodenext",
+        "moduleResolution": "nodenext",
         "strict": true,
         "skipLibCheck": true,
         "forceConsistentCasingInFileNames": true,
+        "paths": {
+            "@components/*": ["./src/components/*"]
+        },
         "outDir": "./dist",
         "rootDir": "./src",
         "removeComments": true,
         "sourceMap": true
     },
-    "include": ["src/**/*"],
-    "exclude": ["node_modules","dist"]
+    "include": ["./src/**/*"],
+    "exclude": ["./node_modules/","./dist/"]
 }

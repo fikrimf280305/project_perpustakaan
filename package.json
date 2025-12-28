@@ -1,5 +1,5 @@
 {
-  "name": "time_script",
+  "name": "project_perpustakaan",
   "version": "1.0.0",
   "description": "",
   "main": "./dist/index.js",
@@ -10,9 +10,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
-  
+  "author": "Muhammad Naufal Alghani",
+  "license": "GPL-3.0-only",
   "type": "module",
   "dependencies": {
     "express": "^5.2.1",
