@@ -17,4 +17,30 @@ class Book {
 
         return query.all(id, title, author, authorId, releaseDateStr)
     }
+
+    public static read(id: number): Record<string, SQLOutputValue>[] {
+        const query: StatementSync = database.prepare(`
+            SELECT Title, Author, AuthorId, ReleaseDate FROM Books WHERE Id = ?
+        `)
+
+        return query.all(id)
+    }
+
+    public static update(id: number, column: string | number, row: string | number): Record<string, SQLOutputValue>[] {
+        const query: StatementSync = database.prepare(`
+            UPDATE Books
+            SET ? = ?
+            WHERE Id = ?
+        `)
+
+        return query.all(column, row, id)
+    }
+
+    public static delete(id: number): Record<string, SQLOutputValue>[] {
+        const query: StatementSync = database.prepare(`
+            DELETE FROM Books WHERE Id = ?
+        `)
+
+        return query.all(id)
+    }
 }
