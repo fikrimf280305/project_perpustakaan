@@ -18,7 +18,7 @@ export class User {
         return query.all(id)
     }
 
-    public static update(id: number, column: string, row: string): Record<string, SQLOutputValue>[] {
+    public static update(id: number, column: string | number, row: string | number): Record<string, SQLOutputValue>[] {
         const query: StatementSync = database.prepare(`
             UPDATE Users
             SET ? = ?
