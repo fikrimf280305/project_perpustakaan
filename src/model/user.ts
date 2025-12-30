@@ -1,8 +1,8 @@
 import { database } from '../db.js'
 import { SQLOutputValue, StatementSync } from 'node:sqlite'
 
-class User {
-    public create(id: number, firstName: string, lastName: string, username: string, email: string, role: string, hashedPassword: string): Record<string, SQLOutputValue>[] {
+export class User {
+    public static create(id: number, firstName: string, lastName: string, username: string, email: string, role: string, hashedPassword: string): Record<string, SQLOutputValue>[] {
         const query: StatementSync = database.prepare(`
             INSERT INTO Users (Id, Username, FirstName, LastName, Email, HashedPassword, Role) VALUES (?, ?, ?, ?, ?, ?, ?)
         `)
@@ -10,7 +10,7 @@ class User {
         return query.all(id, username, firstName, lastName, email, hashedPassword, role)
     }
 
-    public read(id: number): Record<string, SQLOutputValue>[] {
+    public static read(id: number): Record<string, SQLOutputValue>[] {
         const query: StatementSync = database.prepare(`
             SELECT Id, FirstName, LastName, Username, Role FROM Users WHERE Id = ?
         `)
@@ -18,7 +18,7 @@ class User {
         return query.all(id)
     }
 
-    public update(id: number, column: string, row: string): Record<string, SQLOutputValue>[] {
+    public static update(id: number, column: string, row: string): Record<string, SQLOutputValue>[] {
         const query: StatementSync = database.prepare(`
             UPDATE Users
             SET ? = ?
@@ -28,7 +28,7 @@ class User {
         return query.all(column, row, id)
     }
 
-    public delete(id: number): Record<string, SQLOutputValue>[] {
+    public static delete(id: number): Record<string, SQLOutputValue>[] {
         const query: StatementSync = database.prepare(`
             DELETE FROM Users WHERE Id = ?
         `)
@@ -36,5 +36,3 @@ class User {
         return query.all(id)
     }
 }
-
-export const user = new User()
