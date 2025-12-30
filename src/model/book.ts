@@ -7,7 +7,7 @@ interface releaseDate {
     "day": number
 }
 
-class Book {
+export class Book {
     public static create(id: number, title: string, author: string, authorId: number, releaseDate: releaseDate): Record<string, SQLOutputValue>[] {
         const releaseDateStr: string = `${releaseDate.year}-${String(releaseDate.month).padStart(2, "0")}-${String(releaseDate.day).padStart(2, "0")}`
 
